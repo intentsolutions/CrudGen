@@ -1,0 +1,99 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use $REQUEST_NAMESPACE$\$PASCAL_ENTITY$\$PASCAL_ENTITY$Request;
+use $RESOURCE_NAMESPACE$\$PASCAL_ENTITY$\$PASCAL_ENTITY$Collection;
+use $RESOURCE_NAMESPACE$\$PASCAL_ENTITY$\$PASCAL_ENTITY$Resource;
+use $SERVICE_NAMESPACE$\$PASCAL_ENTITY$Service;
+use Illuminate\Http\Response;
+use App\Http\Controllers\Controller;
+
+class $PASCAL_ENTITY$Controller extends Controller
+{
+    public function __construct(private readonly $PASCAL_ENTITY$Service $$SNAKE_ENTITY$Service)
+    {
+    }
+
+    /**
+     * @OA\Get(
+     *      path="/$SNAKE_ENTITY_PLURAL$",
+     *      operationId="show$PASCAL_ENTITY_PLURAL$",
+     *      tags={"$PASCAL_ENTITY_PLURAL$"},
+     *      summary="Show $SNAKE_ENTITY_PLURAL$",
+     *      @OA\Parameter(name="sort", in="query", required=false),
+     *      @OA\Response(response=200, description="Successful operation", @OA\JsonContent()),
+     * )
+     */
+    public function index(): $PASCAL_ENTITY$Collection
+    {
+        return new $PASCAL_ENTITY$Collection($this->$SNAKE_ENTITY$Service->getAll());
+    }
+
+    /**
+     * @OA\Get(
+     *      path="/$SNAKE_ENTITY_PLURAL$/{id}",
+     *      operationId="show$PASCAL_ENTITY$",
+     *      tags={"$PASCAL_ENTITY_PLURAL$"},
+     *      summary="Show $SNAKE_ENTITY$",
+     *      @OA\Parameter(name="id", in="path", required=true),
+     *      @OA\Response(response=200, description="Successful operation", @OA\JsonContent()),
+     * )
+     */
+    public function show(int $id): $PASCAL_ENTITY$Resource
+    {
+        return new $PASCAL_ENTITY$Resource($this->$SNAKE_ENTITY$Service->show($id));
+    }
+
+    /**
+     * @OA\Post(
+     *      path="/$SNAKE_ENTITY_PLURAL$",
+     *      operationId="store$PASCAL_ENTITY$",
+     *      tags={"$PASCAL_ENTITY_PLURAL$"},
+     *      summary="Store new $SNAKE_ENTITY$",
+     *      @OA\RequestBody(required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/$PASCAL_ENTITY$Request")
+     *      ),
+     *      @OA\Response(response=201, description="Successful operation", @OA\JsonContent()),
+     * )
+     */
+    public function store($PASCAL_ENTITY$Request $request): $PASCAL_ENTITY$Resource
+    {
+        return new $PASCAL_ENTITY$Resource($this->$SNAKE_ENTITY$Service->store($request->validated()));
+    }
+
+    /**
+     * @OA\Put(
+     *      path="/$SNAKE_ENTITY_PLURAL$/{id}",
+     *      operationId="update$PASCAL_ENTITY$",
+     *      tags={"$PASCAL_ENTITY_PLURAL$"},
+     *      summary="Update $SNAKE_ENTITY$",
+     *      @OA\Parameter(name="id", in="path", required=true),
+     *      @OA\RequestBody(required=true,
+     *          @OA\JsonContent(ref="#/components/schemas/$PASCAL_ENTITY$Request")
+     *      ),
+     *      @OA\Response(response=200, description="Successful operation", @OA\JsonContent()),
+     * )
+     */
+    public function update($PASCAL_ENTITY$Request $request, int $id): $PASCAL_ENTITY$Resource
+    {
+        return new $PASCAL_ENTITY$Resource($this->$SNAKE_ENTITY$Service->update($request->validated(), $id));
+    }
+
+    /**
+     * @OA\Delete(
+     *      path="/$SNAKE_ENTITY_PLURAL$/{id}",
+     *      operationId="delete$PASCAL_ENTITY$",
+     *      tags={"$PASCAL_ENTITY_PLURAL$"},
+     *      summary="Delete existing $SNAKE_ENTITY$",
+     *      @OA\Parameter(name="id", in="path", required=true),
+     *      @OA\Response(response=204, description="No Content", @OA\JsonContent()),
+     * )
+     */
+    public function destroy(int $id): Response
+    {
+        $this->$SNAKE_ENTITY$Service->destroy($id);
+
+        return response()->noContent();
+    }
+}

@@ -1,0 +1,62 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use App\Http\Requests\$PASCAL_ENTITY$\$PASCAL_ENTITY$Request;
+use App\Services\$PASCAL_ENTITY$Service;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+
+class $PASCAL_ENTITY$Controller extends Controller
+{
+    public function __construct(private $PASCAL_ENTITY$Service $$SNAKE_ENTITY$Service)
+    {
+    }
+
+    public function index(): View
+    {
+        return view('$SNAKE_ENTITY$.list', [
+            '$SNAKE_ENTITY_PLURAL$' => $this->$SNAKE_ENTITY$Service->getAll()
+        ]);
+    }
+
+	public function create(): View
+    {
+        return view('$SNAKE_ENTITY$.form');
+	}
+
+    public function store($PASCAL_ENTITY$Request $request): RedirectResponse
+    {
+        $this->$SNAKE_ENTITY$Service->store($request->validated());
+
+        return redirect('$SNAKE_ENTITY$')->with('message', 'Successfully created!');
+    }
+
+    public function edit(int $id): View
+    {
+        return view('$SNAKE_ENTITY$.form', [
+            '$SNAKE_ENTITY$' => $this->$SNAKE_ENTITY$Service->show($id)
+        ]);
+    }
+
+    public function show(int $id): View
+    {
+        return view('$SNAKE_ENTITY$.show', [
+            '$SNAKE_ENTITY$' => $this->$SNAKE_ENTITY$Service->show($id)
+        ]);
+    }
+
+    public function update($PASCAL_ENTITY$Request $request, int $id): RedirectResponse
+    {
+        $this->$SNAKE_ENTITY$Service->update($request->validated(), $id);
+
+        return redirect('$SNAKE_ENTITY$')->with('message', 'Successfully updated!');
+    }
+
+    public function destroy(int $id): RedirectResponse
+    {
+        $this->$SNAKE_ENTITY$Service->destroy($id);
+
+        return redirect('$SNAKE_ENTITY$')->with('message', 'Successfully deleted!');
+    }
+}

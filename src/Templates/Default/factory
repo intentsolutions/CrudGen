@@ -1,0 +1,18 @@
+<?php
+
+namespace Database\Factories;
+
+use App\Models\$PASCAL_ENTITY$;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Hash;
+
+class $PASCAL_ENTITY$Factory extends Factory
+{
+    protected $model = $PASCAL_ENTITY$::class;
+
+    public function definition()
+    {
+        return [$DEFINITION$
+        ];
+    }
+}

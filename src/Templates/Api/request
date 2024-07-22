@@ -1,0 +1,26 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use Illuminate\Foundation\Http\FormRequest;
+/**
+ * @OA\Schema(
+ *      title="Product request",
+ *      description="Product request body data",
+ *      type="object",
+ *      required={$REQUIRED$}
+ * ),
+$OA_FIELDS$ */
+class $PASCAL_ENTITY$Request extends FormRequest
+{
+    public function authorize(): bool
+    {
+        return true;
+    }
+
+    public function rules(): array
+    {
+        return [$RULES$
+        ];
+    }
+}

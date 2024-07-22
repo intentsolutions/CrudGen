@@ -1,0 +1,26 @@
+{
+  "name": "is/crud-maker",
+  "description": "crud maker for laravel",
+  "type": "library",
+  "homepage": "https://intent-solutions.com/",
+  "license": "Apache-2.0",
+  "autoload": {
+    "psr-4": {
+      "IS\\CrudMaker\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "IS\\CrudMaker\\CrudMakerServiceProvider"
+      ]
+    }
+  },
+  "authors": [
+    {
+      "name": "Intent Solution"
+    }
+  ],
+  "minimum-stability": "beta",
+  "require": {}
+}

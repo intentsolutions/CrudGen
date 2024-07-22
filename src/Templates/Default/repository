@@ -1,0 +1,15 @@
+<?php
+
+namespace $NAMESPACE$;
+
+use App\Models\$PASCAL_ENTITY$;
+
+class $PASCAL_ENTITY$Repository extends BaseRepository
+{
+    public function __construct()
+    {
+        $this->model = $PASCAL_ENTITY$::class;
+
+        $this->filters = [];
+    }
+}
