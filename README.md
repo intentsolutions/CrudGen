@@ -4,7 +4,7 @@
 
 Run the installation using composer
   ```
-  composer require is/crud-maker
+  composer require intentsolutions/make-crud
   ```
 open your config/app.php and add this line in providers section
   ```
