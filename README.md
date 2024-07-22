@@ -1,4 +1,4 @@
-# CRUDMaker-for-laravel
+# CRUD Maker
 
 ## Installation
 
